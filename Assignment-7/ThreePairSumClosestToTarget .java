@@ -10,6 +10,20 @@ public class ThreePairSumClosestToTarget {
         int target = 1;
         int currentSum=0;
         
+	    
+	    /*
+	    Approach: 
+	    Repeat: N-3 times
+	    	1. Fix the element at index: i 
+	    	2. Two Sum approach is considered from i+1 to end-1, if found the pair, then append the Result = TwoPairOutput + Array[i] 
+		
+	    1. Time taken for Sorting = O( N * logn)
+	    2. We  are traversing the input from i+1 to N-1 --> Time taken ~ O(N)
+	    3. Repeat step-2 until N-3 times. --> Time taken = O(N^2)
+	    4. OVerall time taken = o(N * logn) +  O(N^2) = O(N^2) 
+	    
+	   
+	    */
          Arrays.sort(nums);
 	    int closest = 0;
         int n = nums.length;
@@ -21,12 +35,16 @@ public class ThreePairSumClosestToTarget {
 
 		while (j < k) {
 			int sum = nums[i] + nums[j] + nums[k];
+			// If the two pair sum is equal to the target, then we are returning the output.
 			if (sum == target)
 				return target;
+			// IF the PresentSum = nums[i] + nums[j] + nums[k] is lesser than target sum, increment the left pointer.
 			else if (sum < target)
 				j++;
 			else
 				k--;
+			
+			// Checkng if the currenstSum is the closest to the target or not.
 
 			int diff = Math.abs(target - sum);
 			if (diff < minDiff) {
