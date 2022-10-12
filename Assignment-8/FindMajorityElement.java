@@ -7,7 +7,17 @@ public class FindMajorityElement {
         System.out.println("Majority Element of the given Array is : " + findMaj(nums));
 
     }
+/*
 
+Running time required is: O(N)
+                           because, we are iterating through each and every element and making the frequency in HashMap.
+                           Searching/Storing/Fetch from HashMap takess linear time.
+
+Additional Space is used to store the element and its frequency.                   
+Therefore, the space complexity  = O(N)
+
+
+*/
     public static int findMaj(int[] nums)
     {
         int L = nums.length;
