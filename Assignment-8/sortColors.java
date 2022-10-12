@@ -1,5 +1,41 @@
 class Solution {
    public static void main(String[] args) {
+      
+      /*
+      
+      This problem is solved using Quick Sort due to the condition inplace sorting is required.
+      As quick sort sorts the given input in-place even if all the elements are equal/sorted order.
+      
+      Time Complexity: T(N) = 2 T(N/2) + O(N)
+      ----------------
+      Best Case: 
+           O(N * logN) using the masters theorem
+           a = 2, b = 2, K = 1, p = 0
+           and K = loga/logb
+           also, p > -1 => Case-3
+           Time = O(n^(loga/logb) (logn)^(p+1))
+                = O(n * logn)
+      Worst Case:
+      -----------
+            If the input is sorted or equal elements, then 
+               T(N) = T(N-1) + O(N)
+                    = T(N-2) + N-1 + N 
+                    = T(N-3) + N-2 + N-1 + N 
+                    = T(N-4) + N-3 + N-2 + N-1 + N
+                    .
+                    .
+                    = T(N-K) + (N-K+1) + (N-K+2) + .....+ N
+                    = T(1) + 1 + 2 + 3 + ...+ N [Put K= N]
+                    = N* (N+1))/2
+                    = O(N*N)
+                    
+                 
+                  
+                              
+                            
+         
+         
+         */
         int[] arr = new int[]{2,0,2,1,1,0};
        quickSort(arr, 0, arr.length-1);
       System.out.println("Sorted Colors: " + arr);
